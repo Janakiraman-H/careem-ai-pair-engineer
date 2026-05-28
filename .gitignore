@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.streamlit/secrets.toml
+.DS_Store
+.coverage
+dist/
+build/
+
+# Local tooling caches
+.mypy_cache/
+.ruff_cache/
+venv/
