@@ -19,32 +19,111 @@ st.set_page_config(
 
 CSS = """
 <style>
+    :root {
+        --app-bg: #f6f8fb;
+        --surface: #ffffff;
+        --surface-muted: #f8fafc;
+        --text: #17202a;
+        --text-muted: #425466;
+        --border: #d9e1ea;
+        --accent: #147d64;
+        --accent-hover: #0f6b55;
+    }
+    .stApp,
+    [data-testid="stAppViewContainer"] {
+        background: var(--app-bg);
+        color: var(--text);
+    }
     .main .block-container {
         padding-top: 2rem;
         max-width: 1180px;
     }
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+    [data-testid="stSidebar"] {
+        background: #edf4f2;
+        color: var(--text);
+        border-right: 1px solid var(--border);
+    }
+    [data-testid="stSidebar"] * {
+        color: var(--text);
+    }
+    [data-testid="stSidebar"] [data-testid="stInfo"] {
+        background: #dff5ee;
+        border: 1px solid #9ed8c7;
+    }
+    [data-testid="stSidebar"] [data-testid="stInfo"] * {
+        color: #075443;
+    }
+    label,
+    .stRadio label,
+    .stSelectbox label,
+    .stTextArea label,
+    .stSelectSlider label {
+        color: var(--text) !important;
+    }
+    .stCaption,
+    [data-testid="stCaptionContainer"],
+    [data-testid="stMarkdownContainer"] p {
+        color: var(--text-muted);
+    }
+    textarea,
+    input,
+    [data-baseweb="select"] > div,
+    [data-baseweb="popover"] {
+        background: var(--surface) !important;
+        color: var(--text) !important;
+        border-color: var(--border) !important;
+    }
+    textarea {
+        caret-color: var(--text);
+    }
+    textarea::placeholder,
+    input::placeholder {
+        color: #667085 !important;
+    }
+    [data-baseweb="select"] span,
+    [data-baseweb="menu"] li,
+    [data-baseweb="popover"] * {
+        color: var(--text) !important;
+    }
+    .stButton > button {
+        background: var(--accent);
+        border: 1px solid var(--accent);
+        color: #ffffff;
+    }
+    .stButton > button:hover,
+    .stButton > button:focus {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+        color: #ffffff;
+    }
     .hero {
-        border-bottom: 1px solid #e8ecef;
+        border-bottom: 1px solid var(--border);
         margin-bottom: 1.2rem;
         padding-bottom: 1rem;
+        color: var(--text);
     }
     .hero h1 {
+        color: var(--text);
         font-size: 2.4rem;
         margin-bottom: 0.2rem;
     }
     .subtitle {
-        color: #425466;
+        color: var(--text-muted);
         font-size: 1.05rem;
         margin-bottom: 0.7rem;
     }
     .small-copy {
-        color: #536471;
+        color: var(--text-muted);
         line-height: 1.55;
     }
     .review-card {
-        background: #ffffff;
-        border: 1px solid #e4e8ee;
+        background: var(--surface);
+        border: 1px solid var(--border);
         border-radius: 8px;
+        color: var(--text);
         padding: 1rem 1.1rem;
         margin-bottom: 0.9rem;
         box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
@@ -52,7 +131,15 @@ CSS = """
     .review-card h3 {
         font-size: 1.02rem;
         margin: 0 0 0.55rem 0;
-        color: #17202a;
+        color: var(--text);
+    }
+    .review-card ul {
+        margin-bottom: 0;
+        padding-left: 1.25rem;
+    }
+    .review-card li,
+    .review-card p {
+        color: var(--text);
     }
     .badge {
         display: inline-block;
@@ -78,14 +165,29 @@ CSS = """
         border-color: #fecdca;
     }
     .metric-box {
-        background: #f8fafc;
-        border: 1px solid #e4e8ee;
+        background: var(--surface-muted);
+        border: 1px solid var(--border);
         border-radius: 8px;
+        color: var(--text);
         padding: 1rem;
     }
+    .metric-box [data-testid="stMetricLabel"],
+    .metric-box [data-testid="stMetricValue"],
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"] {
+        color: var(--text) !important;
+    }
+    [data-testid="stAlert"] {
+        background: #fff7dc;
+        color: #7a4b00;
+        border-color: #f0c36d;
+    }
+    [data-testid="stAlert"] * {
+        color: #7a4b00;
+    }
     .footer {
-        color: #667085;
-        border-top: 1px solid #e8ecef;
+        color: #596579;
+        border-top: 1px solid var(--border);
         margin-top: 2rem;
         padding-top: 1rem;
         font-size: 0.9rem;
